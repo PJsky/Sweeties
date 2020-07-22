@@ -9,10 +9,7 @@ import Footer from "../components/Footer"
 import '../style/fonts.css'
 const IndexPage = () => (
   <>
-    <head>
-      <link rel="stylesheet" href="./font-awesome.min.css"/>
-    </head>
-    {/* <SEO title="Sweetie's bread" /> */}
+      <SEO title="Sweetie's bread" />
       <Hero/>
       <About/>
       <Offer/>

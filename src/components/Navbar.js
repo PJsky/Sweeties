@@ -134,7 +134,7 @@ const StyledWrapper = styled.div`
                 /* background: #bbbbbb33; */
                 padding:2rem;
                 .logo{
-                    color: #ffffff;
+                    color: #000000;
                     opacity:100%;
                 }
             }
