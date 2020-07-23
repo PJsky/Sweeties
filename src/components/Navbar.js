@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, {createGlobalStyle} from 'styled-components'
 import backgroundImage from '../images/bread-large.jpg';
 
@@ -143,6 +143,22 @@ const StyledWrapper = styled.div`
 
 const Navbar = () => {
 
+    const [selectedNav, setSelectedNav] = useState("home");
+
+    const highlightNav = () => {
+        let home = document.querySelector(`#home`).offsetTop;
+        let about = document.querySelector(`#about`).offsetTop;
+        let offer = document.querySelector(`#offer`).offsetTop;
+        let products = document.querySelector(`#products`).offsetTop;
+        let contact = document.querySelector(`#contact`).offsetTop;
+        window.addEventListener('scroll', function(e) {
+            if(window.scrollY < about) setSelectedNav("home");
+            else if(window.scrollY < offer) setSelectedNav("about");
+            else if(window.scrollY < products) setSelectedNav("offer");
+            else if(window.scrollY < contact) setSelectedNav("products");
+
+      })
+    }
 
     let navbar,navbarReplacement;
     const makeNavSticky = () => {
@@ -160,8 +176,15 @@ const Navbar = () => {
           })
     }
     
-    useEffect(()=>{try{makeNavSticky()}catch(e){}},[])
+    useEffect(()=>{try{
+        makeNavSticky();
+        highlightNav();
+    }catch(e){}},[])
 
+    const scrollTo = (elementId) =>{
+        let element = document.querySelector(`#${elementId}`);
+        element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+    }
 
     return (
     <>
@@ -173,10 +196,10 @@ const Navbar = () => {
                         <div className="logo">Sweetie's</div>
                         </div>
                     <ul className="navigation-bar-links">
-                        <li className="active-link"><a href="#about">HOME</a></li>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#about">OFFER</a></li>
-                        <li><a href="#about">CONTACT</a></li>
+                        <li className={selectedNav=="home"?"active-link":""}><a onClick={()=>{scrollTo("home")}}>HOME</a></li>
+                        <li className={selectedNav=="about"?"active-link":""}><a onClick={()=>{scrollTo("about")}}>ABOUT</a></li>
+                        <li className={selectedNav=="offer"?"active-link":""}><a onClick={()=>{scrollTo("offer")}}>OFFER</a></li>
+                        <li className={selectedNav=="products"?"active-link":""}><a onClick={()=>{scrollTo("products")}}>PRODUCTS</a></li>
                     </ul>
                 </div>
             </nav>

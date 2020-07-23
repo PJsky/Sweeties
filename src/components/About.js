@@ -24,7 +24,8 @@ const StyledWrapper = styled.div`
             }
             .about-text-paragraph{
                 font-family: 'Oswald';
-
+                width:50vw;
+                margin:auto;
             }
             
         }

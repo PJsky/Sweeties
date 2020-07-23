@@ -264,7 +264,7 @@ const Hero = () => {
     <>
         <GlobalStyle/>
         <StyledWrapper>
-            <div className="hero"></div>
+            <div className="hero" id="home"></div>
             <div className="hero-overlay">
                 <div className="top-info-bar">
                     <div className="top-info-bar-container">

@@ -54,7 +54,7 @@ const StyledWrapper = styled.div`
 const Footer = () => (
     <>
         <StyledWrapper>
-            <div className="footer" id="footer">
+            <div className="footer" id="contact">
                 <div className="footer-dots">
                     <div className="footer-social-media">
                         <FontAwesomeIcon className="contact-icon" icon={faFacebookF} />

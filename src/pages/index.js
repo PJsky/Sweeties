@@ -8,6 +8,8 @@ import Products from "../components/Products"
 import Footer from "../components/Footer"
 import '../style/fonts.css'
 const IndexPage = () => (
+
+  
   <>
       <SEO title="Sweetie's bread" />
       <Hero/>
